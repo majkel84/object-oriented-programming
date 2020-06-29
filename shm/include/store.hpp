@@ -16,16 +16,14 @@ public:
     Store();
     Store(Time* time);
     ~Store();
-    //     ~Your() {
-    //         time_->removeObserver(this);
-    //     }
 
     Response buy(Cargo* cargo, size_t amount, Player* player);
     Response sell(Cargo* cargo, size_t amount, Player* player);
+    void updateStoreCargo();
     void nextDay() override;
-    std::vector<cargoPtr> cargo_;
 
     // dopisać składowe - towar jaki sklep przetrzymuje i obsługa nextday ;)
 private:
+    std::vector<cargoPtr> cargo_;
     Time* time_;
 };

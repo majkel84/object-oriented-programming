@@ -42,8 +42,14 @@ Response Store::sell(Cargo* cargo, size_t amount, Player* player) {
     return Response::done;
 }
 
+//TODO create methode to generate new cargo
+void Store::updateStoreCargo() {
+
+}
+
 void Store::nextDay() {
     for (auto el : cargo_) {
         el -> nextDay();
     }
+    updateStoreCargo();
 }
