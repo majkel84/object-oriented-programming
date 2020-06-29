@@ -11,12 +11,21 @@ enum class Response {
     lack_of_space
 };
 
-class Store {
+class Store : public Observer{
+public:
     Store();
+    Store(Time* time);
+    ~Store();
+    //     ~Your() {
+    //         time_->removeObserver(this);
+    //     }
+
     Response buy(Cargo* cargo, size_t amount, Player* player);
     Response sell(Cargo* cargo, size_t amount, Player* player);
-    void nextDay();
+    void nextDay() override;
     std::vector<cargoPtr> cargo_;
 
     // dopisać składowe - towar jaki sklep przetrzymuje i obsługa nextday ;)
+private:
+    Time* time_;
 };

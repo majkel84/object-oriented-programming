@@ -3,6 +3,15 @@
 Store::Store() {
 }
 
+Store::Store(Time *time)
+    : time_(time) {
+    time_ -> addObserver(this);
+}
+
+Store::~Store() {
+    time_ -> removeObserver(this);
+}
+
 Response Store::buy(Cargo* cargo, size_t amount, Player* player) {
     int totalPrice = cargo->getPrice() * amount;
 
