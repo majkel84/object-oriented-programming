@@ -20,7 +20,6 @@ public:
     void payCrew(size_t money) override;
     void subtractMoney(const size_t& money);
 
-
 private:
     std::shared_ptr<Ship> ship_;
     size_t money_;
