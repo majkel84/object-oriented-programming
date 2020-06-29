@@ -47,13 +47,13 @@ void Ship::load(std::shared_ptr<Cargo> cargo) {
 }
 
 //TODO: use == operators of each classes to comparison
-/*cargoPtr Ship::FindMatchCargo(Cargo* cargo) {
-    for (auto el : cargo_) {
-        if (*el == *cargo) {
-            return el;
-        }
-    }
-}*/
+Cargo* Ship::FindMatchCargo(Cargo* cargo) {
+    auto match_cargo = std::find_if(std::begin(cargo_), std::end(cargo_),
+        [cargo](const auto& el) {
+        return *el == *cargo;
+    });
+    return match_cargo != std::end(cargo_) ? match_cargo->get() : nullptr;
+}
 
 void Ship::Unload(Cargo* cargo) {
     RemoveFromStorage(cargo);
