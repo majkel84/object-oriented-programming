@@ -18,6 +18,7 @@ set(SOURCES
     src/map.cpp
     src/player.cpp
     src/ship.cpp
+    src/store.cpp
     src/time.cpp
 )
 
@@ -31,6 +32,7 @@ set(HEADER_FILES
     include/map.hpp
     include/player.hpp
     include/ship.hpp
+    include/store.hpp
     include/time.hpp
 )
 
