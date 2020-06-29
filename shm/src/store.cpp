@@ -14,8 +14,8 @@ Response Store::buy(Cargo* cargo, size_t amount, Player* player) {
 
     else if (totalPrice > player->getMoeny())
         return Response::lack_of_money;
-
-    player->getShip()->load(cargo);
+    std::shared_ptr<Cargo> cargoPtr(cargo);
+    player->getShip()->load(cargoPtr);
     player->subtractMoney(totalPrice);
     cargo -= amount;
     return Response::done;
@@ -35,6 +35,6 @@ Response Store::sell(Cargo* cargo, size_t amount, Player* player) {
 
 void Store::nextDay() {
     for (auto el : cargo_) {
-        el += 1;
+        el -> nextDay();
     }
 }

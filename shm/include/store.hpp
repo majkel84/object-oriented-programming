@@ -15,7 +15,7 @@ class Store {
     Store();
     Response buy(Cargo* cargo, size_t amount, Player* player);
     Response sell(Cargo* cargo, size_t amount, Player* player);
-    void nextDay() override;
+    void nextDay();
     std::vector<cargoPtr> cargo_;
 
     // dopisać składowe - towar jaki sklep przetrzymuje i obsługa nextday ;)
